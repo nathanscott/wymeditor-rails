@@ -1,3 +1,32 @@
 = WymeditorRails
 
-This project rocks and uses MIT-LICENSE.
+Asset gem for http://www.wymeditor.org/ jquery based editor.
+
+add to Gemfile
+gem "wymeditor-rails", :git => "https://github.com/tklenke/wymeditor-rails.git"
+
+run bundle install
+
+In addition  to get this working, I had to add the following to my production.rb
+
+  config.assets.precompile += %w( iframe/default/wymiframe.css 
+        lang/en.js skins/default/skin.js skins/default/skin.css )
+        
+When using I had to add to the layout.html.erb where I wanted to use it.
+
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+
+<script type="text/javascript">
+    jQuery(function() {
+        jQuery('.wymeditor').wymeditor({
+            basePath: "/assets/",
+            wymPath: "/assets/"
+          });
+    });
+</script>
+
+And in the layout.js coffee script file I had
+//= require jquery_ujs
+//= require jquery.wymeditor.min
+
+This project uses MIT-LICENSE.
