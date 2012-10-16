@@ -14,19 +14,19 @@ In addition  to get this working, I had to add the following to my production.rb
         
 When using I had to add to the layout.html.erb where I wanted to use it.
 
-<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
 
-<script type="text/javascript">
+  <script type="text/javascript">
     jQuery(function() {
         jQuery('.wymeditor').wymeditor({
             basePath: "/assets/",
             wymPath: "/assets/"
           });
     });
-</script>
+  </script>
 
 And in the layout.js coffee script file I had
-//= require jquery_ujs
-//= require jquery.wymeditor.min
+  //= require jquery_ujs
+  //= require jquery.wymeditor.min
 
 This project uses MIT-LICENSE.
